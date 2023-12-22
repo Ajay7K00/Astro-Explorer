@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    padding: 20px;
+    width:20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: 33%;
+    border: 1.5px solid white;
+    border-radius: 50px;
+}
+
+.navbar{
+    display: flex;
+    align-items: centre;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+}
+
+.nav-list{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li{
+    list-style: none;
+    padding: 20px 30px;
+    position: sticky;
+    text-align: left;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px 25px;
+    color: #fff;
+    text-align: center;
+}
+
+.nav-list li ul.dropdown li{
+    display: block;
+    padding: 15px 0px;
+}
+
+.nav-list li:hover ul.dropdown{
+    display: block;
+    position: absolute;
+}
+
+.nav-list li ul.dropdown{
+    width: 88%;
+    background: rgb(54, 54, 54);
+    position: absolute;
+    z-index: 999;
+    display: none;
+    font-size: small;
+    text-align: justify;
+}
+
+.nav-list li a:hover{
+    text-decoration: none;
+    color: gray;
+    position: static;
+}
+
+
+.nav-list li ul.dropdown li:hover{
+    width: 100%;
+    background: gray;
+    display: inline-flexbox;
+    position: static;
+}
+
+.nav-list li ul.dropdown li a{
+    width: 100%;
+    display: inline-flexbox;
+    color: white;
+    position: static;
+}
+
+.rightNav img{
+    width: 50%;
+    align-items: right;
+}
+
+.background{
+    background: rgba(0,0,0,0.7) url(../img/background.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.firstSection{
+    height: 100vh;
+}
+
+.box-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    max-width: 50%;
+    margin: auto;
+    height: 80%;
+}
+
+.firstHalf{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.firstHalf p{
+    margin: 23px;
+}
+
+.secondHalf{
+    width: 100%;
+}
+
+.secondHalf img{
+    width: 30%;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+.secondHalf ul{
+    display: flex;
+  }
+.secondHalf ul li{
+    position: relative;
+    display: block;
+    color: #666;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    background: #171515;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 15px 15px;
+    cursor: pointer;
+    transition: .5s;
+    text-align: center;
+  }
+ .secondHalf ul li:before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: inherit;
+    width: inherit;
+    /* background: #d35400; */
+    border-radius: 50%;
+    transform: scale(.9);
+    z-index: -1;
+    transition: .5s;
+  }
+  .secondHalf li:nth-child(1):before{
+    background: #4267B2;
+  }
+  .secondHalf li:nth-child(2):before{
+    background: #1DA1F2;
+  }
+  .secondHalf li:nth-child(3):before{
+    background: #E1306C;
+  }
+ .secondHalf ul li:nth-child(4):before{
+    background: #2867B2;
+  }
+ .secondHalf ul li:nth-child(5):before{
+    background: #ff0000;
+  }
+ .secondHalf ul li:hover:before{
+    filter: blur(3px);
+    transform: scale(1.2);
+    /* box-shadow: 0 0 15px #d35400; */
+  }
+ .secondHalf ul li:nth-child(1):hover:before{
+    box-shadow: 0 0 15px #4267B2;
+  }
+ .secondHalf ul li:nth-child(2):hover:before{
+    box-shadow: 0 0 15px #1DA1F2;
+  }
+  .secondHalf li:nth-child(3):hover:before{
+    box-shadow: 0 0 15px #E1306C;
+  }
+  .secondHalf li:nth-child(4):hover:before{
+    box-shadow: 0 0 15px #2867B2;
+  }
+ .secondHalf ul li:nth-child(5):hover:before{
+    box-shadow: 0 0 15px #ff0000;
+  }
+ .secondHalf ul li:nth-child(1):hover{
+    color: #456cba;
+    box-shadow: 0 0 15px #4267B2;
+    text-shadow: 0 0 15px #4267B2;
+  }
+  .secondHalf li:nth-child(2):hover{
+    color: #26a4f2;
+    box-shadow: 0 0 15px #1DA1F2;
+    text-shadow: 0 0 15px #1DA1F2;
+  }
+  .secondHalf li:nth-child(3):hover{
+    color: #e23670;
+    box-shadow: 0 0 15px #E1306C;
+    text-shadow: 0 0 15px #E1306C;
+  }
+ .secondHalf ul li:nth-child(4):hover{
+    color: #2a6cbb;
+    box-shadow: 0 0 15px #2867B2;
+    text-shadow: 0 0 15px #2867B2;
+  }
+  .secondHalf li:nth-child(5):hover{
+    color: #ff1a1a;
+    box-shadow: 0 0 15px #ff0000;
+    text-shadow: 0 0 15px #ff0000;
+  }
