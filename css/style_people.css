@@ -263,7 +263,7 @@
     font-size: 24px;
     height: 40px;
     width: 40px;
-    background: #171515;
+    background: transparent;
     border-radius: 50%;
     transition: .5s;
 }
