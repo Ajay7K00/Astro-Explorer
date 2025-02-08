@@ -143,6 +143,18 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
     background: rgba(0, 0, 0, 0.85);
     color: white;
     padding: 20px;
+    width: 280px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    margin-bottom: 40px;
+}
+
+.professor {
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px;
     width: 500px;
     border-radius: 10px;
     text-align: center;
