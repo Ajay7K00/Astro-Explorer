@@ -5,50 +5,153 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="css/style_people.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-   <title>Astro Explorer</title>
+   <title>SPARC Lab - People</title>
 </head>
 <body>
-    <nav class="navbar background">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><img src="img/sun.jpg" alt="logo"></div>
         <ul class="nav-list">
-
-            <li><a href="index.html"> Home</a> </li>
-            <li><a href="#"> Explore</a>
-            <ul class="dropdown">
-                <li><a href="X-ray_astronomy.html"> X-ray Astronomy</a> </li>
-                <li><a href="space-plasma.html"> Space Plasma</a> </li>
-            </ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Explore</a>
+                <ul class="dropdown">
+                    <li><a href="space-plasma.html">Space Plasma</a></li>
+                </ul>
             </li>
-            <li><a href="people.html"> People</a> </li>
-            <li><a href="contact.html"> Contact</a> </li>
-            <li><a href="about.html"> About</a> </li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
-        <div class="rightNav">
-            <div class="logo"><img src="img/Picture2.png" alt="logo"></div>
-        </div>
     </nav>
-   <section class = "background firstSection">
-       <div class="box-main">
-           <div class="firstHalf">
-               <h1>Ajay Kumar</h1>
-               <p>Greetings! I'm a Physics Masters student in Mumbai, with a passion for Astronomy and
-                 Astrophysics. My research involves X-ray time series analysis of Active Galactic Nuclei 
-                 (AGNs). Beyond astrophysics, I'm deeply intrigued by Quantum Computing, exploring both 
-                 hardware and software aspects. Join me in unraveling the mysteries of the cosmos and the 
-                 quantum realm!
-               </p>
-           </div>
-           <div class="secondHalf">
-               <img src="img/Ajay.jpeg" alt="Ajay">
-               <ul class="social-icons">
-        <li><a class="social-link" href="https://www.facebook.com/profile.php?id=100006467354700"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a class="social-link" href="https://github.com/Ajay7K00"><i class="fab fa-github"></i></a></li>
-        <li><a class="social-link" href="https://www.instagram.com/ajay_was_here_/"><i class="fab fa-instagram"></i></a></li>
-        <li><a class="social-link" href="https://www.linkedin.com/in/ajay-kumar-563550139/"><i class="fab fa-linkedin-in"></i></a></li>
-    </ul>
-           </div>
 
-       </div>
+    <!-- People Sections -->
+    <section class="people-section">
 
-   </section>
+        <!-- Professor -->
+        <h2 class="professor-title">Supervisor</h2>
+        <div class="people-container">
+            <div class="person-card professor">
+                <img src="img/AnilR.jpg" alt="Professor">
+                <h3>Dr. Anil Narayan Raghav</h3>
+                <p>Associate Professor</p>
+        
+                <ul style="text-align: justify; padding-left: 20px; line-height: 1.8;">
+                    <li>Space Science / Solar Terrestrial Physics. </li>
+                    <li>Interplanetary counterpart of Coronal Mass Ejections (ICMEs).</li>
+                    <li>High and slow solar wind interactions (SIRs, CIRs).</li>
+                    <li>Evolution of small-scale flux ropes, planar magnetic structures (PMSs),
+                        flux tubes, and current sheets.</li>
+                    <li>Particle energization, heating, and cooling processes in plasma.</li>
+                    <li>Plasma waves, their generation mechanisms, and propagation.</li>
+                    <li>Space weather phenomena, e.g., Geomagnetic Storms (GS), Forbush Decreases (FD), and 
+                        Ground-Level Enhancements (GLEs).</li>
+                </ul>
+        
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com/anil.raghav.77"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&user=7-IDd4wAAAAJ"><i class="fas fa-graduation-cap"></i></a></li>
+                    <li><a href="mailto:anil.raghav@mu.ac.com"><i class="fas fa-envelope"></i></a></li>
+                    <li><a href="#"><i class="fab fa-researchgate"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        
+
+        <!-- PhD Students -->
+        <h2 class="phd-title">PhD Students</h2>
+        <div class="people-container">
+            <!-- PhD Student 1 -->
+            <div class="person-card phd">
+                <img src="img/OmkarD.jpg" alt="PhD Student">
+                <h3>Omkar Dhamane</h3>
+                <p>Research on Plasma waves, MHD and Kinetic scale coupling, Turbulence</p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&user=7b4e9zAAAAAJ"><i class="fas fa-graduation-cap"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:omkar@example.com"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- PhD Student 2 -->
+            <div class="person-card phd">
+                <img src="img/KalpeshG.jpg" alt="PhD Student">
+                <h3>Kalpesh Ghag</h3>
+                <p>Research on Charged particle acceleration in Interplanetary space and magnetosphere</p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&user=nQU5a1EAAAAJ"><i class="fas fa-graduation-cap"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:kalpesh@example.com"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="person-card phd">
+                <img src="img/KishorK.jpg" alt="PhD Student">
+                <h3>Kishor Kumbhar</h3>
+                <p>Plasma waves and instabilities, Plasma heating</p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&user=50iZeZIAAAAJ"><i class="fas fa-graduation-cap"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:kalpesh@example.com"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- Add more PhD students -->
+        </div>
+
+        <!-- Masters Students -->
+        <h2 class="masters-title">Masters Students</h2>
+        <div class="people-container">
+            <!-- Masters Student 1 -->
+            <div class="person-card masters">
+                <img src="img/master1.jpg" alt="Masters Student">
+                <h3>Mark Smith</h3>
+                <p>Studying Magnetic Reconnection</p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:mark@example.com"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- Add more Masters students -->
+        </div>
+
+        <!-- Alumni -->
+        <h2 class="alumni-title">Alumni</h2>
+        <div class="people-container">
+            <!-- Alumni 1 -->
+            <div class="person-card alumni">
+                <img src="img/alumni1.jpg" alt="Alumni">
+                <h3>Emily White</h3>
+                <p>Now at NASA</p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:emily@example.com"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- Add more Alumni -->
+        </div>
+
+    </section>
+
 </body>
 </html>

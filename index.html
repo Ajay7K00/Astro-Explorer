@@ -1,44 +1,49 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Astro Explorer</title>
- </head>
- <body>
-    <nav class="navbar background">
+    <title>SPARC Lab | Space Physics Advance Research Community</title>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
         <ul class="nav-list">
-            <li><a href="index.html"> Home</a> </li>
-            <li><a href="#"> Explore</a>
-            <ul class="dropdown">
-                <li><a href="X-ray_astronomy.html"> X-ray Astronomy</a> </li>
-                <li><a href="space-plasma.html"> Space Plasma</a> </li>
-            </ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Explore</a>
+                <ul class="dropdown">
+                    <li><a href="space-plasma.html">Space Plasma</a></li>
+                </ul>
             </li>
-            <li><a href="people.html"> People</a> </li>
-            <li><a href="contact.html"> Contact</a> </li>
-            <li><a href="about.html"> About</a> </li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
         <div class="rightNav">
-            <div class="logo"><img src="img/Picture2.png" alt="logo"></div>
+            <div class="logo"><img src="img/sun.jpg" alt="logo"></div>
         </div>
     </nav>
-    <section class = "background firstSection">
+
+    <!-- Hero Section with Video Background -->
+    <section class="background firstSection">
+        <!-- Video Background -->
+        <video autoplay muted loop preload="auto" class="bg-video">
+            <source src="img/videoplayback.webm" type="video/webm">
+            <source src="videos/space.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+
+        <!-- Main Content -->
         <div class="box-main">
             <div class="firstHalf">
-                <p class="text-big">Hello, Explorers! Aboard the trip to the edge of cosmos
-                     with Astro Explorer.</p>
-                <p class="text-small">We would take off soon to an amazing adventure 
-                    into the world of new learning opportunites. </p>
+                <h1 class="sparc-title">SPARC</h1>
+                <p class="text-big">Space Physics Advance Research Community</p>
             </div>
-            <div class="secondHalf">
-                <img src="img/explorer.png" alt="explorer">
-                <!-- <iframe src="Content.html" width="100%" height="500"></iframe> -->
-            </div>
-
         </div>
-
     </section>
+
 </body>
- </html>
+</html>
