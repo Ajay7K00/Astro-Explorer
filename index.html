@@ -48,15 +48,24 @@
         </div>
     </section>
 
+    <section class="solar-wind-text">
     <!-- Solar Wind Data Section -->
+    <p style="text-align: center;" class = "sw-text"> This is live 12 hours interplanetary magnetic 
+        field data of solar wind which updates every 
+        minute.
+    </p>
     <section class="solar-wind-section">
-        <h2>Real-Time Solar Wind Data</h2>
+       
+        <h2 style="text-align: center;">Real-Time Solar Wind</h2>
         <div id="legend-container">
             <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
             <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
         </div>
         <canvas id="solarWindChart"></canvas>
+        <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #ddd;">
+            Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank" style="color: #ffcc00;">NOAA SWPC</a>
+        </p>
     </section>
-
+    </section>
 </body>
 </html>

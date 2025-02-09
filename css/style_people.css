@@ -26,11 +26,12 @@ body::before {
 }
 
 /* Navbar */
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(0, 0, 0, 0.1   ); /* 70% opacity black */
+    background: rgba(0, 0, 0, 0.1); /* 70% opacity black */
     backdrop-filter: blur(7px);
     padding: 15px 20px;
     position: fixed;
@@ -67,8 +68,9 @@ body::before {
 }
 
 .nav-list a:hover {
-    background: gray;
+    background: rgb(255, 123, 0); /* Change hover color */
     border-radius: 5px;
+    text-shadow: 0px 0px 8px rgb(255, 123, 0), 0px 0px 15px rgb(255, 123, 0); /* Add glowing effect */
 }
 
 /* Dropdown */
@@ -102,8 +104,9 @@ body::before {
 }
 
 .dropdown a:hover {
-    background: gray;
+    background: rgb(255, 123, 0);
     border-radius: 5px;
+    text-shadow: 0px 0px 8px rgb(255, 123, 0), 0px 0px 15px rgb(255, 123, 0);
 }
 
 /* People Sections */
