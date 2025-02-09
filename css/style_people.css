@@ -140,7 +140,7 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
 }
 
 .person-card {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     padding: 20px;
     width: 280px;
@@ -152,7 +152,7 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
 }
 
 .professor {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     padding: 20px;
     width: 500px;
@@ -227,6 +227,8 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
 
 /* Professor-specific Social Media */
 .professor .social-icons li:nth-child(3) { display: none; } /* Hide Instagram */
+.professor .social-icons li:nth-child(2) { display: none; } 
+
 
 /* PhD-specific Social Media */
 .phd .social-icons li:nth-child(6) a:hover { color: #4CAF50; } /* ResearchGate */

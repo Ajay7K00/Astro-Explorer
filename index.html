@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>SPARC Lab | Space Physics Advance Research Community</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+    <script src="js/sw.js" defer></script>
 </head>
 <body>
 
@@ -18,7 +22,7 @@
                 </ul>
             </li>
             <li><a href="people.html">People</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="publications.html">Publications</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
         <div class="rightNav">
@@ -28,21 +32,30 @@
 
     <!-- Hero Section with Video Background -->
     <section class="background firstSection">
-        <!-- Video Background -->
         <video autoplay muted loop preload="auto" class="bg-video">
             <source src="img/videoplayback.webm" type="video/webm">
             <source src="videos/space.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        
-
-        <!-- Main Content -->
         <div class="box-main">
             <div class="firstHalf">
                 <h1 class="sparc-title">SPARC</h1>
                 <p class="text-big">Space Physics Advance Research Community</p>
+                <p class="para" style="text-align: justify;">The Space Physics Advance Research Community (SPARC Lab) is a team of physicists, PhD scholars, and Master's students at the Department of Physics, University of Mumbai. We focus on studying the Sun and its activities to better understand space weather. 
+                    Our research looks into solar events like Coronal Mass Ejections and their effects on Earth’s space environment. Through our work, we aim to improve space weather forecasting, helping protect satellites, communication systems, and power grids.
+                    Join us as we explore the Sun and its impact on our planet’s space weather studies.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Solar Wind Data Section -->
+    <section class="solar-wind-section">
+        <h2>Real-Time Solar Wind Data</h2>
+        <div id="legend-container">
+            <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
+            <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
+        </div>
+        <canvas id="solarWindChart"></canvas>
     </section>
 
 </body>

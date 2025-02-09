@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Wind Data</title>
+    <link rel="stylesheet" href="css/sw.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+    <script src="js/script.js" defer></script>
+
+    <style>
+        #legend-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 10px auto;
+            font-size: 16px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+
+        .legend-line {
+            width: 30px;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        .bz-line {
+            background-color: red; /* Bz GSM (nT) in Red */
+        }
+
+        .bt-line {
+            background-color: white; /* Bt (nT) in White */
+        }
+
+        #bz-value {
+            color: red;
+        }
+
+        #bt-value {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Solar Wind Data</h1>
+        
+        <div id="legend-container">
+            <div class="legend-item">
+                <div class="legend-line bz-line"></div>
+                <span id="bz-value">Bz GSM: -- nT</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-line bt-line"></div>
+                <span id="bt-value">Bt: -- nT</span>
+            </div>
+        </div>
+
+        <canvas id="solarWindChart"></canvas>
+    </div>
+</body>
+</html>
