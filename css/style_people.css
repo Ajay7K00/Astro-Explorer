@@ -167,15 +167,13 @@ body {
 
     /* Dropdowns in Mobile */
     .dropdown {
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-    }
-
-    .dropdown.show {
-        max-height: 300px; /* Adjust as needed */
+        position: static;
+        width: 100%;
+        background: none;
+        box-shadow: none;
+        display: none;
         opacity: 1;
+        transform: none;
     }
 
     .nav-list li:hover .dropdown {
@@ -264,6 +262,10 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
     box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8); /* Yellow Glow */
 }
 
+.phd-4:hover {
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8); /* Yellow Glow */
+}
+
 .masters:hover {
     box-shadow: 0px 0px 15px rgba(51, 204, 51, 0.8); /* Green Glow */
 }
@@ -320,3 +322,8 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
 /* PhD-specific Social Media */
 .phd .social-icons li:nth-child(6) a:hover { color: #4CAF50; } /* ResearchGate */
 .phd .social-icons li:nth-child(4) a:hover { color: #4285F4; } /* Google Scholar */
+.phd-4 .social-icons li:nth-child(4) { display: none; }
+.phd-4 .social-icons li:nth-child(6) { display: none; }
+
+
+.masters .social-icons li:nth-child(1) { display: none; } /* ResearchGate */
