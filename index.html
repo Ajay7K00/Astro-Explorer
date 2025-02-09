@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
     <script src="js/sw.js" defer></script>
-    <script src="js/navbar.js" defer></script> <!-- Added navbar script -->
+    <script src="js/navbar.js" defer></script> <!-- Navbar JavaScript -->
 </head>
 <body>
 
@@ -62,19 +62,23 @@
     </section>
 
     <!-- Solar Wind Data Section -->
+    <section class="solar-wind-container">
     <section class="solar-wind-text">
-        <p class="sw-text">This is live 12-hour interplanetary magnetic field data of solar wind, updated every minute.</p>
-        <section class="solar-wind-section">
-            <h2>Real-Time Solar Wind</h2>
-            <div id="legend-container">
-                <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
-                <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
-            </div>
-            <canvas id="solarWindChart"></canvas>
-            <p class="data-source">
-                Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
-            </p>
-        </section>
+        <p class="sw-text">This is live 12-hour interplanetary magnetic 
+            field data of solar wind, updated every minute.</p>
+    <section class="solar-wind-section">
+        
+        <h2>Real-Time Solar Wind</h2>
+        <div id="legend-container">
+            <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
+            <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
+        </div>
+        <canvas id="solarWindChart"></canvas>
+        <p class="data-source">
+            Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+        </p>
+    </section>
+    </section>
     </section>
 
 </body>
