@@ -9,11 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/moment"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
     <script src="js/sw.js" defer></script>
+    <script src="js/navbar.js" defer></script> <!-- Added navbar script -->
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
+        <div class="logo">
+            <img src="img/sun.jpg" alt="logo">
+        </div>
         <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Explore</a>
@@ -25,8 +29,11 @@
             <li><a href="publications.html">Publications</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-        <div class="rightNav">
-            <div class="logo"><img src="img/sun.jpg" alt="logo"></div>
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
@@ -41,31 +48,34 @@
             <div class="firstHalf">
                 <h1 class="sparc-title">SPARC</h1>
                 <p class="text-big">Space Physics Advance Research Community</p>
-                <p class="para" style="text-align: justify;">The Space Physics Advance Research Community (SPARC Lab) is a team of physicists, PhD scholars, and Master's students at the Department of Physics, University of Mumbai. We focus on studying the Sun and its activities to better understand space weather. 
-                    Our research looks into solar events like Coronal Mass Ejections and their effects on Earth’s space environment. Through our work, we aim to improve space weather forecasting, helping protect satellites, communication systems, and power grids.
-                    Join us as we explore the Sun and its impact on our planet’s space weather studies.</p>
+                <p class="para">
+                    The Space Physics Advance Research Community (SPARC Lab) is a team of physicists, PhD scholars, 
+                    and Master's students at the Department of Physics, University of Mumbai. We focus on studying 
+                    the Sun and its activities to better understand space weather. Our research looks into solar 
+                    events like Coronal Mass Ejections and their effects on Earth’s space environment. 
+                    Through our work, we aim to improve space weather forecasting, helping protect satellites, 
+                    communication systems, and power grids. Join us as we explore the Sun and its impact on 
+                    our planet’s space weather studies.
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="solar-wind-text">
     <!-- Solar Wind Data Section -->
-    <p style="text-align: center;" class = "sw-text"> This is live 12 hours interplanetary magnetic 
-        field data of solar wind which updates every 
-        minute.
-    </p>
-    <section class="solar-wind-section">
-       
-        <h2 style="text-align: center;">Real-Time Solar Wind</h2>
-        <div id="legend-container">
-            <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
-            <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
-        </div>
-        <canvas id="solarWindChart"></canvas>
-        <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #ddd;">
-            Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank" style="color: #ffcc00;">NOAA SWPC</a>
-        </p>
+    <section class="solar-wind-text">
+        <p class="sw-text">This is live 12-hour interplanetary magnetic field data of solar wind, updated every minute.</p>
+        <section class="solar-wind-section">
+            <h2>Real-Time Solar Wind</h2>
+            <div id="legend-container">
+                <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
+                <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
+            </div>
+            <canvas id="solarWindChart"></canvas>
+            <p class="data-source">
+                Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+            </p>
+        </section>
     </section>
-    </section>
+
 </body>
 </html>
