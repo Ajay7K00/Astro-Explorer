@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>SPARC Lab | Space Physics Advance Research Community</title>
+    
+    <!-- Chart.js & Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+    
+    <!-- JavaScript Files -->
     <script src="js/sw.js" defer></script>
     <script src="js/navbar.js" defer></script> <!-- Navbar JavaScript -->
 </head>
@@ -63,23 +67,35 @@
 
     <!-- Solar Wind Data Section -->
     <section class="solar-wind-container">
-    <section class="solar-wind-text">
-        <p class="sw-text">This is live 12-hour interplanetary magnetic 
-            field data of solar wind, updated every minute.</p>
-    <section class="solar-wind-section">
-        
-        <h2>Real-Time Solar Wind</h2>
-        <div id="legend-container">
-            <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
-            <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
-        </div>
-        <canvas id="solarWindChart"></canvas>
-        <p class="data-source">
-            Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
-        </p>
+        <section class="solar-wind-text">
+            <p class="sw-text">This is live interplanetary magnetic field data of solar wind, updated every minute.</p>
+
+            <section class="solar-wind-section">
+                <h2>Real-Time Solar Wind</h2>
+
+                <!-- Buttons to Change Time Range -->
+                <div class="time-range-buttons">
+                    <button id="btn-1day">1 Day</button>
+                    <button id="btn-12hr">12 Hours</button>
+                    <button id="btn-6hr">6 Hours</button>
+                </div>
+
+                <!-- Legend -->
+                <div id="legend-container">
+                    <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
+                    <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
+                </div>
+
+                <!-- Chart -->
+                <canvas id="solarWindChart"></canvas>
+
+                <p class="data-source">
+                    Data Source: <a href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+                </p>
+            </section>
+        </section>
     </section>
-    </section>
-    </section>
+
 
 </body>
 </html>

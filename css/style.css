@@ -283,6 +283,21 @@ body {
     width: 100%;
 }
 
+.time-range-buttons button {
+    background-color: transparent; /* Transparent background */
+    color: rgb(255, 255, 255); /* Text color */
+    border: none; /* Removes the border */
+    padding: 3px 24px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.time-range-buttons button:hover {
+    background-color: rgba(236, 138, 9, 0.438); /* Subtle hover effect */
+}
+
 /* Legend Items */
 .legend-item {
     display: flex;
