@@ -210,7 +210,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .sparc-title {
@@ -327,6 +327,11 @@ body {
 #bt-value {
     color:white;
 }
+
+.data-source{
+    padding: 5px 0px 0px 85%;
+}
+
 
 /* Chart Area */
 #solarWindChart {
