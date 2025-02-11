@@ -213,6 +213,14 @@ body {
     opacity: 0.5;
 }
 
+.text-nav{
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffcc00;
+    letter-spacing: 5px;
+}
+
 .sparc-title {
     font-size: 60px;
     font-weight: bold;
