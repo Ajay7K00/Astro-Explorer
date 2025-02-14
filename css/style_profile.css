@@ -11,6 +11,7 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     position: relative;
+    padding-top: 80px; /* Ensures content is not hidden behind navbar */
 }
 
 /* Navbar */
@@ -190,168 +191,116 @@ body {
     }
 }
 
-
-/* People Sections */
-.people-section {
-    margin-top: 100px;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-/* Section Titles */
-.people-section h2 {
-    font-size: 28px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-/* Different Colors for Each Section */
-h2 {
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
-}
-
-h2.professor-title { color: #ff6600; } /* Professor - Orange */
-h2.phd-title { color: #ffcc00; } /* PhD Students - Yellow */
-h2.masters-title { color: #33cc33; } /* Masters Students - Green */
-h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
-
-/* People Cards */
-.people-container {
+.profile-container {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 50px; /* Adjusts space between image and text */
+    padding: 40px 100px; /* Adds space from left & right */
 }
 
-.person-card {
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-    padding: 20px;
-    width: 280px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-    margin-bottom: 40px;
-}
 
-.professor {
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-    padding: 20px;
-    width: 280px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-    margin-bottom: 40px;
-}
 
-.person-card {
+/* Left Section (Photo, Affiliation, Social Links) */
+.profile-left {
+    display: flex;
     position: relative;
+    max-width: 350px;
+    text-align: center;
     padding: 20px;
-    transition: transform 0.3s ease-in-out;
+    flex-direction: column;
+    align-items: center; /* Centers everything */
+    justify-content: center;
+    margin: 0 auto; /* Centers the whole section */
 }
 
-.person-card:hover {
-    transform: scale(1.05);
-}
-
-/* Invisible link covering the card */
-.card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Profile Image */
+.profile-left img {
     width: 100%;
-    height: 100%;
-    z-index: 1;  /* Places link above other elements */
+    max-width: 200px;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.5); /* White border */
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); /* Soft glow effect */
 }
 
-
-/* Hover Effects */
-.person-card:hover {
-    transform: scale(1.05);
+/* Name Tag (Now Below the Photo) */
+.name-tag {
+    margin-top: 15px; /* Adds space below the image */
+    background: rgba(247, 148, 0, 0.541);
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    text-align: center;
+    width: max-content;
 }
 
-/* Section-based glow effect */
-.professor:hover {
-    box-shadow: 0px 0px 15px rgba(255, 102, 0, 0.8); /* Orange Glow */
-}
-
-.phd:hover {
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8); /* Yellow Glow */
-}
-
-.phd-4:hover {
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8); /* Yellow Glow */
-}
-
-.masters:hover {
-    box-shadow: 0px 0px 15px rgba(51, 204, 51, 0.8); /* Green Glow */
-}
-
-.alumni:hover {
-    box-shadow: 0px 0px 15px rgba(0, 153, 255, 0.8); /* Blue Glow */
-}
-
-/* Profile Images */
-.person-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 3px solid white;
+/* Affiliation */
+.affiliation {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Social Icons */
-
-
-/* Keep social icons clickable */
-
 .social-icons {
-    position: relative;
-    z-index: 2;  /* Places icons above the invisible link */
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    padding: 10px;
-}
-
-
-.social-icons li {
-    list-style: none;
-    margin: 0 5px;
+    gap: 10px;
 }
 
 .social-icons a {
     color: white;
-    font-size: 18px;
-    transition: 0.3s;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: lightblue;
+    transform: scale(1.1);
 }
 
 /* Social Icons Hover Colors */
-.social-icons a:hover {
-    transform: scale(1.2);
+.social-icons a:nth-child(1):hover { color: #4267B2; } /* Facebook */
+.social-icons a:nth-child(2):hover { color: #333; } /* GitHub */
+.social-icons a:nth-child(3):hover { color: #E1306C; } /* Instagram */
+.social-icons a:nth-child(4):hover { color: #4285F4; } /* Google Scholar */
+.social-icons a:nth-child(5):hover { color: #ffe600; } /* Email */
+.social-icons a:nth-child(6):hover { color: #4CAF50; } /* ResearchGate */
+.social-icons a:nth-child(7):hover { color: #2867B2; } /* LinkedIn */
+
+/* Right Section (Bio & Content) */
+.profile-right {
+    flex: 2;
+    padding-right: 200px;
+    color: white;
 }
 
-.social-icons li:nth-child(1) a:hover { color: #4267B2; } /* Facebook */
-.social-icons li:nth-child(2) a:hover { color: #333; } /* GitHub */
-.social-icons li:nth-child(3) a:hover { color: #E1306C; } /* Instagram */
-.social-icons li:nth-child(4) a:hover { color: #4285F4; } /* Google Scholar */
-.social-icons li:nth-child(5) a:hover { color: #ffe600; } /* Email */
-.social-icons li:nth-child(6) a:hover { color: #4CAF50; } /* ResearchGate */
-.social-icons li:nth-child(7) a:hover { color: #2867B2; } /* LinkedIn */
 
-/* Professor-specific Social Media */
-.professor .social-icons li:nth-child(3) { display: none; } /* Hide Instagram */
-.professor .social-icons li:nth-child(2) { display: none; } 
+.profile-right p {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px; /* Adds space between paragraphs */
+}
 
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-/* PhD-specific Social Media */
-.phd .social-icons li:nth-child(6) a:hover { color: #4CAF50; } /* ResearchGate */
-.phd .social-icons li:nth-child(4) a:hover { color: #4285F4; } /* Google Scholar */
-.phd-4 .social-icons li:nth-child(4) { display: none; }
-.phd-4 .social-icons li:nth-child(6) { display: none; }
+    .profile-left {
+        max-width: 100%;
+    }
 
-
-.masters .social-icons li:nth-child(1) { display: none; } /* ResearchGate */
+    .profile-right {
+        padding: 20px;
+    }
+}

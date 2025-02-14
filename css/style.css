@@ -30,9 +30,9 @@ body {
 
 /* Logo */
 .logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    /* border-radius: 50%; */
 }
 
 /* Navbar Links */
@@ -251,6 +251,15 @@ body {
     padding: 10px;
 }
 
+.para-intro{
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
+    letter-spacing: 3px;
+    padding-top: 50px;
+}
+
 .para {
     color: white;
     text-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
@@ -261,6 +270,7 @@ body {
 /* Solar Wind Section */
 .solar-wind-container {
     display: flex;
+    max-width: 600px;
     flex-direction: column;
     align-items: flex-start; /* Align content to the left */
     justify-content: flex-start;
@@ -271,7 +281,6 @@ body {
 
 /* Solar Wind Text - Now Separate */
 .solar-wind-text {
-    max-width: 800px;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -349,7 +358,7 @@ body {
 }
 
 .data-source{
-    padding: 5px 0px 0px 85%;
+    padding: 5px 0px 0px 75%;
 }
 
 
