@@ -32,7 +32,7 @@ body {
 .logo img {
     width: 80px;
     height: 80px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
 }
 
 /* Navbar Links */
@@ -267,17 +267,47 @@ body {
     text-align: justify;
 }
 
-/* Solar Wind Section */
-.solar-wind-container {
+
+/* Main Container for Side-by-Side Layout */
+.realtime-charts-container {
     display: flex;
-    max-width: 600px;
-    flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: stretch;
     width: 100%;
-    padding-left: 0; /* Ensure no left padding */
-    margin-left: 0; /* Ensure no left margin */
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 100px; /* Adds space between the two sections */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
+
+/* Solar Wind & Proton Flux Sections */
+.solar-wind-container, .proton-flux-container {
+    flex: 1;
+    min-width: 600px; /* Prevents collapsing on smaller screens */
+    max-width: 50%;
+    box-sizing: border-box;
+}
+
+/* Chart Styling */
+#solarWindChart, #protonFluxChart {
+    width: 100% !important;
+    height: 200px !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Solar Wind Box */
+.solar-wind-section, .proton-flux-section {
+    width: 100%;
+    padding: 10px;
+    background: rgba(17, 17, 17, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 94, 0, 0.5);
+    text-align: center;
+}
+
 
 /* Solar Wind Text - Now Separate */
 .solar-wind-text {
@@ -362,21 +392,106 @@ body {
 }
 
 
-/* Chart Area */
-#solarWindChart {
+.proton-flux-text {
     width: 100%;
-    height: 700px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 20px; /* Moves text above the shaded chart */
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .solar-wind-text {
-        font-size: 16px;
+.proton-flux-section {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    background: rgba(17, 17, 17, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 94, 0, 0.5);
+    text-align: center;
+}
+
+.proton-flux-section h2 {
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+
+/* Data Source Styling */
+.data-source {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #ddd;
+}
+
+.data-source a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.data-source a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ---- Energy Range Buttons ---- */
+.energy-range-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Reduced spacing between buttons */
+    margin-top: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.energy-range-buttons button {
+    background-color: #1e1e1e; /* Dark background */
+    color: white; /* Text color */
+    border: 1px solid #FFD700; /* Gold border */
+    padding: 5px 10px; /* Reduced padding */
+    font-size: 12px; /* Smaller font size */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly reduced radius */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.energy-range-buttons button:hover {
+    background-color: #FFD700; /* Gold hover effect */
+    color: black;
+}
+
+.energy-range-buttons .active-button {
+    background-color: #FFD700; /* Active state */
+    color: black;
+    border: 2px solid white;
+}
+
+
+/* Responsive: Stack on Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .realtime-charts-container {
+        flex-direction: column;
+        align-items: center;
     }
 
-    #solarWindChart {
-        height: 400px;
+    .solar-wind-container, .proton-flux-container {
+        max-width: 100%;
+    }
+
+    #solarWindChart, #protonFluxChart {
+        height: 350px;
+    }
+    .energy-range-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .energy-range-buttons button {
+        width: 80%;
     }
 }

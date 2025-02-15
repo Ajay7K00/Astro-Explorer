@@ -13,7 +13,8 @@
     
     <!-- JavaScript Files -->
     <script src="js/sw.js" defer></script>
-    <script src="js/navbar.js" defer></script> <!-- Navbar JavaScript -->
+    <script src="js/proton_flux.js" defer></script>
+    <script src="js/navbar.js" defer></script>
 </head>
 <body>
 
@@ -23,8 +24,8 @@
             <img src="img/sun.jpg" alt="logo">
         </div>
         <section class="nav-text">
-        <p class="text-nav">SPACE</p>
-        <p class="text-nav-small">Space-weather & Plasma Analysis Center for Exploration</p>
+            <p class="text-nav">SPACE</p>
+            <p class="text-nav-small">Space-weather & Plasma Analysis Center for Exploration</p>
         </section>
         <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
@@ -37,7 +38,6 @@
             <li><a href="publications.html">Publications</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-        <!-- Mobile Menu Toggle -->
         <div class="menu-toggle">
             <span></span>
             <span></span>
@@ -45,7 +45,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Video Background -->
+    <!-- Hero Section -->
     <section class="background firstSection">
         <video autoplay muted loop preload="auto" class="bg-video">
             <source src="img/videoplayback.webm" type="video/webm">
@@ -56,51 +56,84 @@
             <div class="firstHalf">
                 <h1 class="sparc-title">SPACE</h1>
                 <p class="text-big">Space-weather, Plasma & Aeronomy Center for Exploration</p>
-                <p class ="para-intro">
-                    Welcome!
+                <p class="para-intro">Welcome!</p>
                 <p class="para">
-
-                    The SPACE team is a dynamic group of physicists, PhD scholars, and research students dedicated to advancing space weather forecasting. Our mission is to enhance the protection of satellites, communication and navigation systems, power grids, and high-altitude travelers by improving early warning systems.
-                    
-                    We focus on studying solar transients near Earth, including Interplanetary Coronal Mass Ejections (ICMEs), Corotating Interaction Regions (CIRs), and Solar Energetic Particles (SEPs), to better understand their impact on Earth's magnetosphere and radiation belts. Additionally, our research explores plasma waves, instabilities, solar wind heating-cooling mechanisms using a thermodynamic approach, and particle energization processes.
-                    
-                    Join us as we explore the solar wind and its far-reaching influence on Geospace. 
-                </p>
+                    The SPACE team is a dynamic group of physicists, PhD scholars, and research
+                     students dedicated to advancing space weather forecasting. Our mission is to
+                      enhance the protection of satellites, communication and navigation systems, 
+                      power grids, and high-altitude travelers by improving early warning systems. 
+                      We focus on studying solar transients near Earth, including Interplanetary 
+                      Coronal Mass Ejections (ICMEs), Corotating Interaction Regions (CIRs), and 
+                      Solar Energetic Particles (SEPs), to better understand their impact on Earth's 
+                      magnetosphere and radiation belts. Additionally, our research explores plasma 
+                      waves, instabilities, solar wind heating-cooling mechanisms using a thermodynamic 
+                      approach, and particle energization processes. Join us as we explore the solar 
+                      wind and its far-reaching influence on Geospace.                
+                    </p>
             </div>
         </div>
     </section>
 
-    <!-- Solar Wind Data Section -->
-    <section class="solar-wind-container">
-        <section class="solar-wind-text">
-            <p class="sw-text">This is live interplanetary magnetic field data of solar wind, updated every minute.</p>
+    <!-- Real-Time Data Container -->
+    <section class="realtime-charts-container">
+        
+        <!-- Solar Wind Data Section -->
+        <section class="solar-wind-container">
+            <section class="solar-wind-text">
+                <p class="sw-text">This is live interplanetary magnetic field data of solar wind, updated every minute.</p>
+                <section class="solar-wind-section">
+                    <h2>Real-Time Solar Wind</h2>
 
-            <section class="solar-wind-section">
-                <h2>Real-Time Solar Wind</h2>
+                    <!-- Buttons to Change Time Range -->
+                    <div class="time-range-buttons">
+                        <button id="btn-1day">1 Day</button>
+                        <button id="btn-12hr">12 Hours</button>
+                        <button id="btn-6hr">6 Hours</button>
+                    </div>
 
-                <!-- Buttons to Change Time Range -->
-                <div class="time-range-buttons">
-                    <button id="btn-1day">1 Day</button>
-                    <button id="btn-12hr">12 Hours</button>
-                    <button id="btn-6hr">6 Hours</button>
-                </div>
+                    <!-- Legend -->
+                    <div id="legend-container">
+                        <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
+                        <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
+                    </div>
 
-                <!-- Legend -->
-                <div id="legend-container">
-                    <div class="legend-item"><div class="legend-line bz-line"></div><span id="bz-value">Bz GSM: -- nT</span></div>
-                    <div class="legend-item"><div class="legend-line bt-line"></div><span id="bt-value">Bt: -- nT</span></div>
-                </div>
+                    <!-- Chart -->
+                    <canvas id="solarWindChart"></canvas>
 
-                <!-- Chart -->
-                <canvas id="solarWindChart"></canvas>
-
-                <p class="data-source">
-                    &copy <a class="link" href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
-                </p>
+                    <p class="data-source">
+                        &copy <a class="link" href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+                    </p>
+                </section>
             </section>
         </section>
-    </section>
 
+        <!-- Proton Flux Data Section -->
+        <section class="proton-flux-container">
+            <section class="proton-flux-text">
+                <p class="pf-text">This is live proton flux data, updated every minute.</p>
+                
+                <section class="proton-flux-section">
+                    <h2>Real-Time Proton Flux</h2>
+
+                    <!-- Buttons to Toggle Energy Levels -->
+                    <div class="energy-range-buttons">
+                        <button id="btn-1MeV" class="active-button">≥1 MeV</button>
+                        <button id="btn-10MeV" class="active-button">≥10 MeV</button>
+                        <button id="btn-100MeV" class="active-button">≥100 MeV</button>
+                        <button id="btn-500MeV" class="active-button">≥500 MeV</button>
+                    </div>
+                    
+                    <!-- Chart -->
+                    <canvas id="protonFluxChart"></canvas>
+
+                    <p class="data-source">
+                        &copy <a class="link" href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+                    </p>
+                </section>
+            </section>
+        </section>
+
+    </section>
 
 </body>
 </html>

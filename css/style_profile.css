@@ -272,11 +272,15 @@ body {
 .social-icons a:nth-child(5):hover { color: #ffe600; } /* Email */
 .social-icons a:nth-child(6):hover { color: #4CAF50; } /* ResearchGate */
 .social-icons a:nth-child(7):hover { color: #2867B2; } /* LinkedIn */
+.social-icons a:nth-child(8):hover { color: #00ff9d; } /* CV */
+
+.professor .social-icons a:nth-child(3) { display: none; } /* Hide Instagram */
 
 /* Right Section (Bio & Content) */
 .profile-right {
     flex: 2;
-    padding-right: 200px;
+    padding-left: 100px;
+    padding-right: 300px;
     color: white;
 }
 
@@ -291,9 +295,10 @@ body {
 /* Responsive Layout */
 @media screen and (max-width: 768px) {
     .profile-container {
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
         text-align: center;
+        padding: 40px 20px;
     }
 
     .profile-left {
