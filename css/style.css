@@ -30,8 +30,8 @@ body {
 
 /* Logo */
 .logo img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 
@@ -51,7 +51,7 @@ body {
     text-decoration: none;
     color: white;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 14px;
     transition: 0.3s ease-in-out;
 }
 
@@ -220,7 +220,7 @@ body {
 }
 
 .text-nav{
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
@@ -230,7 +230,7 @@ body {
 }
 
 .text-nav-small{
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffcc00;
@@ -240,7 +240,7 @@ body {
 }
 
 .sparc-title {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffcc00;
@@ -258,7 +258,7 @@ body {
 }
 
 .para-intro{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: #ffcc00;
     text-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
@@ -272,6 +272,71 @@ body {
     padding: 50px 50px;
     /* text-align: justify; */
 }
+
+
+
+/* Photo Album Styling */
+.photo-album {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Image Styling */
+.photo-album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    transition: transform 1s ease-in-out;
+}
+
+/* Active Image (Visible Image) */
+.photo-album img.active {
+    transform: translateX(0);
+    left: 0;
+}
+
+/* Next Image (Preloading) */
+.photo-album img.next {
+    transform: translateX(100%);
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.nav-btn.left {
+    left: 10px;
+}
+
+.nav-btn.right {
+    right: 10px;
+}
+
+/* Button Hover Effect */
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 
 
 /* Main Container for Side-by-Side Layout */
@@ -299,7 +364,7 @@ body {
 #solarWindChart, #protonFluxChart {
     width: 100% !important;
     height: 200px !important;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px;
 }
@@ -320,7 +385,7 @@ body {
     width: 100%;
     padding: 10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #ffcc00;
     margin-bottom: 20px; /* Moves text above the shaded chart */
@@ -343,7 +408,7 @@ body {
     align-items: center;
     justify-content: space-between;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     padding: 0 10px;
     width: 100%;
 }
@@ -354,7 +419,7 @@ body {
     border: none; /* Removes the border */
     padding: 3px 24px;
     margin: 5px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
@@ -402,20 +467,10 @@ body {
     width: 100%;
     padding: 10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #ffcc00;
-    margin-bottom: 20px; /* Moves text above the shaded chart */
-}
-
-.proton-flux-section {
-    width: 100%;
-    max-width: 800px;
-    padding: 10px;
-    background: rgba(17, 17, 17, 0.8);
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(255, 94, 0, 0.5);
-    text-align: center;
+    margin-bottom: 10px; /* Moves text above the shaded chart */
 }
 
 .proton-flux-section h2 {
@@ -429,7 +484,7 @@ body {
 /* Data Source Styling */
 .data-source {
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 10px;
     color: #ddd;
 }
@@ -472,6 +527,71 @@ body {
     background-color: #FFD700; /* Active state */
     color: black;
     border: 2px solid white;
+}
+
+
+/* X-ray Flux Section */
+.xray-flux-container {
+    flex: 1;
+    min-width: 600px; /* Prevents collapsing on smaller screens */
+    max-width: 100%;
+    height: 400px !important;
+    box-sizing: border-box;
+    padding-right: 55%;
+}
+
+/* Chart Styling */
+#xrayFluxChart {
+    width: 100% !important;
+    height: 250px !important;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.xray-flux-section {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 94, 0, 0.5);
+    text-align: center;
+}
+
+/* Title & Description */
+.xray-flux-container h2 {
+    color: #ffcc00;
+    letter-spacing: 1px;
+}
+
+.xray-text {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffcc00;
+    /* margin-bottom: 10px; Moves text above the shaded chart */
+}
+
+
+
+.xrayFluxChart {
+    width: 100%;
+    max-height: 100%;
+}
+
+/* Data Source */
+.xray-data-source {
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+.xray-data-source .link {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.xray-data-source .link:hover {
+    text-decoration: underline;
 }
 
 

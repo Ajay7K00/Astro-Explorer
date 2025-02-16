@@ -9,12 +9,18 @@
     <!-- Chart.js & Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>'
+    <!-- Moment.js + Chart.js Time Adapter -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>'
     
     <!-- JavaScript Files -->
     <script src="js/sw.js" defer></script>
     <script src="js/proton_flux.js" defer></script>
+    <script src="js/xray_flux.js"></script>
     <script src="js/navbar.js" defer></script>
+    <script src="js/photo_album.js" defer></script>
+
 </head>
 <body>
 
@@ -74,6 +80,16 @@
         </div>
     </section>
 
+<!-- Photo Album -->
+<div class="photo-album">
+    <img id="photo-slide-1" src="photo_album/space1.jpg" alt="Space Image" class="active">
+    <img id="photo-slide-2" src="photo_album/space2.jpg" alt="Space Image" class="next">
+    
+    <!-- Navigation Buttons -->
+    <button id="prev-btn" class="nav-btn left">&lt;</button>
+    <button id="next-btn" class="nav-btn right">&gt;</button>
+</div>
+
     <!-- Real-Time Data Container -->
     <section class="realtime-charts-container">
         
@@ -132,6 +148,28 @@
                 </section>
             </section>
         </section>
+
+
+
+        <!-- X-ray Flux Data -->
+        <section class="xray-flux-container">
+            <section class="xray-flux-text">
+                <p class="xray-text">This is live X-ray flux data, updated every minute.</p>
+                <section class="xray-flux-section">
+                    <h2>Real-Time X-ray Flux</h2>
+
+                 
+                    <canvas id="xrayFluxChart"></canvas>
+                    
+
+                    <p class="xray-data-source">
+                        &copy <a class="link" href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+                    </p>
+                </section>
+            </section>
+        </section> 
+
+
 
     </section>
 

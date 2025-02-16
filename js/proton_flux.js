@@ -1,4 +1,3 @@
-// Proton Flux Chart Setup
 const protonCtx = document.getElementById('protonFluxChart').getContext('2d');
 let protonData = [];
 let selectedTimeRange = 24 * 60 * 60 * 1000; // Default: Last 24 hours
@@ -83,12 +82,18 @@ let protonChart = new Chart(protonCtx, {
                 type: 'logarithmic',
                 min: 1e-3,
                 max: 1e2,
+                title: { 
+                    display: true,
+                    text: "Particles · cm² · s⁻¹ · sr⁻¹", // ✅ Y-axis label from image
+                    color: 'white'
+                },
                 ticks: { 
                     color: 'white',
                     callback: function(value) {
                         return value.toExponential(1);
                     }
-                }
+                },
+                grid: { color: 'rgba(255, 255, 255, 0.2)' } // ✅ Adjusted grid color for visibility
             }
         },
         plugins: {

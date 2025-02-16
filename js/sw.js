@@ -12,7 +12,7 @@ let solarWindChart = new Chart(ctx, {
             { 
                 label: "Bz GSM (nT)",
                 data: [], 
-                borderColor: 'rgba(255, 123, 0, 0.60)',  
+                borderColor: 'rgba(255, 123, 0, 0.86)',  
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
                 borderWidth: 1.5,  
                 tension: 0.4,
@@ -22,7 +22,7 @@ let solarWindChart = new Chart(ctx, {
             { 
                 label: "Bt (nT)",
                 data: [], 
-                borderColor: 'rgba(255, 255, 255, 0.60)',  
+                borderColor: 'rgba(255, 255, 255, 0.86)',  
                 backgroundColor: 'rgba(255, 255, 255, 0.2)',
                 borderWidth: 1.5,  
                 tension: 0.4,
@@ -39,11 +39,18 @@ let solarWindChart = new Chart(ctx, {
             x: { 
                 type: 'time', 
                 time: { unit: 'hour' },
-                ticks: { color: 'white' }
+                ticks: { color: 'white' },
+                grid: { color: 'rgba(255, 255, 255, 0.2)' } // ✅ Grid color update
             },
             y: { 
+                title: {
+                    display: true,
+                    text: "nT", // ✅ Added Y-axis label
+                    color: 'white'
+                },
                 beginAtZero: false,
-                ticks: { color: 'white' }
+                ticks: { color: 'white' },
+                grid: { color: 'rgba(255, 255, 255, 0.2)' } // ✅ Grid color update
             }
         },
         plugins: {
