@@ -485,7 +485,8 @@ body {
     .firstSection, .para-intro, .para {
         padding: 15px;
         font-size: 16px; /* Make text smaller for readability */
-        word-wrap: break-word;
+        /* word-wrap: break-word; */
+        text-align: center;
     }
 
     /* Adjust heading size */
@@ -494,8 +495,13 @@ body {
         letter-spacing: 1px;
     }
 
+    .text-big{
+        font-size: 20px;
+    }
+
     /* Fix background scaling */
     .firstSection {
+        padding-top: 100px;
         background-size: cover;
         background-position: center;
     }
@@ -504,6 +510,20 @@ body {
     /* Make sure buttons/nav are properly spaced */
     .navbar {
         padding: 10px;
+    }
+
+    .text-nav{
+        font-size: 14px;
+    }
+
+    .text-nav-small{
+        font-size: 10px;
+    }
+
+    .logo img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
     }
 
     .realtime-charts-container {
