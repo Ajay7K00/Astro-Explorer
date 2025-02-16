@@ -391,16 +391,7 @@ body {
     margin-bottom: 20px; /* Moves text above the shaded chart */
 }
 
-/* Solar Wind Section Box */
-.solar-wind-section {
-    width: 100%;
-    max-width: 800px;
-    padding: 10px;
-    background: rgba(17, 17, 17, 0.8);
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(255, 94, 0, 0.5);
-    text-align: center;
-}
+
 
 /* Shifted Legends */
 #legend-container {
@@ -537,7 +528,7 @@ body {
     max-width: 100%;
     height: 400px !important;
     box-sizing: border-box;
-    padding-right: 55%;
+    /* padding-right: 55%; */
 }
 
 /* Chart Styling */
@@ -649,13 +640,40 @@ body {
         align-items: center;
     }
 
-    .solar-wind-container, .proton-flux-container {
+    .solar-wind-container, .proton-flux-container, .xray-flux-container {
         max-width: 100%;
     }
 
-    #solarWindChart, #protonFluxChart {
+    #solarWindChart, #protonFluxChart, .xrayFluxChart{
         height: 350px;
     }
 
 
+}
+
+
+@media (min-width: 1200px) {
+    .realtime-charts-container {
+        flex-direction: row; /* Horizontal layout */
+        gap: 100px;
+    }
+}
+
+/* Medium screens (Tablets) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .realtime-charts-container {
+        flex-direction: column; /* Stacks charts vertically */
+        align-items: center;
+        gap: 50px;
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 767px) {
+    .realtime-charts-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 10px;
+    }
 }
