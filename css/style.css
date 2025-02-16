@@ -467,10 +467,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.energy-range-buttons button:hover {
-    background-color: #FFD700; /* Gold hover effect */
-    color: black;
-}
 
 .energy-range-buttons .active-button {
     background-color: #FFD700; /* Active state */
