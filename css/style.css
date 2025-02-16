@@ -270,7 +270,7 @@ body {
     color: white;
     text-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
     padding: 50px 50px;
-    /* text-align: justify; */
+    text-align: justify;
 }
 
 
@@ -596,6 +596,10 @@ body {
         text-align: center;
     }
 
+    .para {
+        text-align: justify;
+    }
+
     /* Adjust heading size */
     .sparc-title {
         font-size: 28px; 
@@ -641,7 +645,7 @@ body {
     }
 
     .solar-wind-container, .proton-flux-container, .xray-flux-container {
-        max-width: 100%;
+        max-width: 50%;
     }
 
     #solarWindChart, #protonFluxChart, .xrayFluxChart{
@@ -649,31 +653,4 @@ body {
     }
 
 
-}
-
-
-@media (min-width: 1200px) {
-    .realtime-charts-container {
-        flex-direction: row; /* Horizontal layout */
-        gap: 100px;
-    }
-}
-
-/* Medium screens (Tablets) */
-@media (max-width: 1199px) and (min-width: 768px) {
-    .realtime-charts-container {
-        flex-direction: column; /* Stacks charts vertically */
-        align-items: center;
-        gap: 50px;
-    }
-}
-
-/* Small screens (Phones) */
-@media (max-width: 767px) {
-    .realtime-charts-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        padding: 10px;
-    }
 }
