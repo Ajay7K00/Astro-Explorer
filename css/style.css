@@ -353,7 +353,6 @@ body {
     justify-content: center;
     align-items: stretch;
     width: 100%;
-    max-width: 1800px;
     margin: 0 auto;
     padding: 50px;
     gap: 100px; /* Adds space between the two sections */
@@ -428,24 +427,6 @@ body {
 @keyframes scrollText {
     0%, 20% { transform: translateY(0); } /* Stay still at the start */
     100% { transform: translateY(-100%); } /* Scroll up */
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .info-section {
-        flex-direction: column;
-        align-items: center;
-        width: 90%;
-        right: 0;
-        top: 20%;
-    }
-
-    .announcement-container,
-    .publications-container {
-        width: 100%;
-        position: relative;
-        margin-bottom: 20px;
-    }
 }
 
 
@@ -897,5 +878,19 @@ body {
         height: 350px;
     }
 
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        right: 0;
+        top: 20%;
+    }
+
+    .announcement-container,
+    .publications-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: 20px;
+    }
 
 }
