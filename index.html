@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>SPARC Lab | Space Physics Advance Research Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>SPACE Lab | Space-weather, Plasma & Aeronomy Center for Exploration</title>
     
     <!-- Chart.js & Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -20,6 +21,7 @@
     <script src="js/xray_flux.js"></script>
     <script src="js/navbar.js" defer></script>
     <script src="js/photo_album.js" defer></script>
+    <script src="js/announcement.js"></script>
 
 </head>
 <body>
@@ -42,7 +44,7 @@
             </li>
             <li><a href="people.html">People</a></li>
             <li><a href="publications.html">Publications</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="support.html">Support Us</a></li>
         </ul>
         <div class="menu-toggle">
             <span></span>
@@ -88,6 +90,36 @@
     <!-- Navigation Buttons -->
     <button id="prev-btn" class="nav-btn left">&lt;</button>
     <button id="next-btn" class="nav-btn right">&gt;</button>
+</div>
+
+<!-- Announcements & Publications Container -->
+<div class="info-section">
+    <!-- Announcements -->
+    <section class="announcement-container">
+        <h2>News & Announcements</h2>
+        <div class="announcement-box">
+            <ul id="announcement-list">
+                <li>🚀 New research paper on ICME detection published! <a href="#">Read more</a></li>
+                <li>🔭 Upcoming webinar on space weather impacts - March 10th! <a href="#">Register here</a></li>
+                <li>🌞 NOAA data now updates in real-time every minute! <a href="#">Learn more</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Latest Publications -->
+    <section class="publications-container">
+        <h2>Latest Publications</h2>
+        <div class="publications-box">
+            <ul id="publications-list">
+                <li>📄 "Revealing super-adiabatic features of interplanetary coronal mass ejections at 1 au" - Astronomy & Astrophysics, 2025 <a href="#">Read more</a></li>
+                <li>🛰 "How Geoeffective are Planer and non-Planer Magnetic Structured ICME-sheaths for Earth’s Radiation belts?" - AGU24, 2024 <a href="#">Read more</a></li>
+                <li>⚡ "Anisotropic Heating and Cooling within Interplanetary Coronal Mass Ejection Sheath Plasma" - The Astrophysical Journal, 2024 <a href="#">Read more</a></li>
+                <li>🌍 "Quasi-planar ICME sheath: A cause of the first two-step extreme geomagnetic storm of the 25th solar cycle observed on 23 April 2023" - Advances in Space Research, 2024 <a href="#">Read more</a></li>
+                <li>🌌 "AuroraMag: Twin explorer of asymmetry in aurora and solar wind-magnetosphere coupling" - Advances in Space Research, 2024 <a href="#">Read more</a></li>
+                <li>🔬 "Observation of Kinetic Alfvén Waves inside an Interplanetary Coronal Mass Ejection Magnetic Cloud at 1 au" - The Astrophysical Journal, 2024 <a href="#">Read more</a></li>
+            </ul>          
+        </div>
+    </section>
 </div>
 
     <!-- Real-Time Data Container -->
@@ -172,6 +204,47 @@
 
 
     </section>
+
+
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="img/sun.jpg" alt="SPARC Lab Logo">
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:info@sparclab.com">info@sparclab.com</a></p>
+            <p>Follow us:</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        &copy; 2025 SPACE Lab | Space-weather, Plasma & Aeronomy Center for Exploration. All rights reserved.
+    </div>
+</footer>
 
 </body>
 </html>

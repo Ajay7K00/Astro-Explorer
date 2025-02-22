@@ -1,6 +1,6 @@
 const protonCtx = document.getElementById('protonFluxChart').getContext('2d');
 let protonData = [];
-let selectedTimeRange = 24 * 60 * 60 * 1000; // Default: Last 24 hours
+let selectedTimeRange = 24 * 60 * 60 * 1000; // Last 24 hours
 let activeEnergyRanges = { "1MeV": true, "10MeV": true, "100MeV": true, "500MeV": true };
 
 let protonChart = new Chart(protonCtx, {
@@ -68,32 +68,33 @@ let protonChart = new Chart(protonCtx, {
                 },
                 ticks: { 
                     color: 'white',
-                    maxTicksLimit: 12, // Ensure 12 ticks (every 2 hours in 24-hour period)
+                    maxTicksLimit: 12,
                     callback: function(value) {
                         let date = new Date(value);
                         let hours = date.getUTCHours();
                         let period = hours >= 12 ? 'PM' : 'AM';
-                        let formattedHours = hours % 12 || 12; // Convert 0 to 12-hour format
+                        let formattedHours = hours % 12 || 12;
                         return formattedHours + " " + period;
                     }
                 }
             },
             y: { 
                 type: 'logarithmic',
-                min: 1e-3,
-                max: 1e2,
                 title: { 
                     display: true,
-                    text: "Particles · cm² · s⁻¹ · sr⁻¹", // ✅ Y-axis label from image
+                    text: "Particles · cm² · s⁻¹ · sr⁻¹",
                     color: 'white'
                 },
                 ticks: { 
                     color: 'white',
-                    callback: function(value) {
+                    callback: function(value, index, values) {
+                        if (value === 5e-1 || value === 5e0 || value === 5e1 || value === 5e2 || value === 5e3) {
+                            return ''; // Hide specific values like 5.0e+0, 5.0e+1, etc.
+                        }
                         return value.toExponential(1);
                     }
                 },
-                grid: { color: 'rgba(255, 255, 255, 0.2)' } // ✅ Adjusted grid color for visibility
+                grid: { color: 'rgba(255, 255, 255, 0.2)' }
             }
         },
         plugins: {
@@ -101,7 +102,7 @@ let protonChart = new Chart(protonCtx, {
                 labels: { 
                     color: 'white',
                     usePointStyle: true,
-                    pointStyle: 'line' // Thin legend lines
+                    pointStyle: 'line' 
                 }
             },
             tooltip: {
@@ -111,7 +112,7 @@ let protonChart = new Chart(protonCtx, {
                         return new Date(tooltipItems[0].parsed.x)
                             .toISOString()
                             .replace('T', ' ')
-                            .slice(0, -5); // Format: YYYY-MM-DD HH:mm UT
+                            .slice(0, -5);
                     }
                 }
             }
@@ -172,7 +173,20 @@ function updateProtonChart() {
     protonChart.data.datasets[1].data = filteredData.map(point => point.flux10MeV ?? null);
     protonChart.data.datasets[2].data = filteredData.map(point => point.flux100MeV ?? null);
     protonChart.data.datasets[3].data = filteredData.map(point => point.flux500MeV ?? null);
-    
+
+    // **Make Y-Axis Dynamic**
+    let allFluxValues = protonData.flatMap(point => [
+        point.flux1MeV, point.flux10MeV, point.flux100MeV, point.flux500MeV
+    ].filter(v => v !== null));
+
+    if (allFluxValues.length > 0) {
+        let minVal = Math.min(...allFluxValues) * 0.8; // 20% padding below min
+        let maxVal = Math.max(...allFluxValues) * 1.2; // 20% padding above max
+
+        protonChart.options.scales.y.suggestedMin = minVal;
+        protonChart.options.scales.y.suggestedMax = maxVal;
+    }
+
     protonChart.update();
 }
 
