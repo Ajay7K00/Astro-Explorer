@@ -113,7 +113,7 @@ body {
 
 /* Active Toggle Animation */
 .menu-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(13px) rotate(45deg);
 }
 
 .menu-toggle.open span:nth-child(2) {
@@ -121,7 +121,7 @@ body {
 }
 
 .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-13px) rotate(-45deg);
 }
 
 /* Responsive Navigation */

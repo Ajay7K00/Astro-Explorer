@@ -119,7 +119,7 @@ body {
 
 /* Active Toggle Animation */
 .menu-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(13px) rotate(45deg);
 }
 
 .menu-toggle.open span:nth-child(2) {
@@ -127,13 +127,16 @@ body {
 }
 
 .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-13px) rotate(-45deg);
 }
 
 /* Responsive Navigation */
 @media screen and (max-width: 768px) {
     .menu-toggle {
         display: flex;
+    }
+    .navbar {
+        padding: 0px 0px;
     }
 
     .nav-list {
@@ -193,7 +196,6 @@ body {
         background: rgb(255, 123, 0);
     }
 }
-
 
 .text-nav{
     font-size: 25px;
