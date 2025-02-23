@@ -2,76 +2,61 @@ document.addEventListener("DOMContentLoaded", function () {
     const authorId = "103320645"; // Dr. Anil N. Raghav's Semantic Scholar ID
     const apiUrl = `https://api.semanticscholar.org/graph/v1/author/${authorId}/papers?fields=title,year,authors,externalIds,venue,publicationDate,isOpenAccess`;
 
-    async function fetchPublisher(doi) {
-        if (!doi) return "";
-        try {
-            const response = await fetch(`https://api.crossref.org/works/${doi}`);
-            if (!response.ok) return "";
-            const data = await response.json();
-            return data.message["container-title"] ? data.message["container-title"][0] : "";
-        } catch (error) {
-            console.error("Error fetching publisher:", error);
-            return "";
-        }
-    }
+    let publicationsData = []; // Store all publications for filtering
 
     async function fetchPublications() {
         const publicationsContainer = document.querySelector(".publications-container");
-        publicationsContainer.innerHTML = `<p class="loading">Loading publications...</p>`; // Show loading text
+        publicationsContainer.innerHTML = `<p class="loading">Loading publications...</p>`;
 
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) throw new Error("Failed to fetch publications");
             const data = await response.json();
-            let publicationsByYear = {};
 
-            // Prepare all publisher fetch requests at once
-            let publisherPromises = data.data.map(async (paper) => {
-                if (!paper.venue && paper.externalIds.DOI) {
-                    return fetchPublisher(paper.externalIds.DOI);
-                }
-                return paper.venue || "";
-            });
+            publicationsData = data.data; // Store globally for filtering
+            renderPublications(publicationsData);
+            populateYearFilter(); // Ensure this runs AFTER publications are fetched
+        } catch (error) {
+            console.error("Error fetching publications:", error);
+            publicationsContainer.innerHTML = `<p class="error">Failed to load publications.</p>`;
+        }
+    }
 
-            let resolvedPublishers = await Promise.all(publisherPromises);
+    function renderPublications(papers) {
+        const publicationsContainer = document.querySelector(".publications-container");
+        publicationsContainer.innerHTML = ""; // Clear previous content
 
-            data.data.forEach((paper, index) => {
-                let year = paper.year || "Unknown";
-                if (!publicationsByYear[year]) publicationsByYear[year] = [];
+        let publicationsByYear = {};
+        papers.forEach((paper) => {
+            let year = paper.year || "Unknown";
+            if (!publicationsByYear[year]) publicationsByYear[year] = [];
 
-                let authorsList = paper.authors.map(a => 
-                    `<span class="author-tag">
-                        <a href="https://www.semanticscholar.org/author/${a.authorId}" target="_blank">${a.name}</a>
-                    </span>`
-                ).join(" ");
+            let authorsList = paper.authors.map(a => 
+                `<span class="author-tag">
+                    <a href="https://www.semanticscholar.org/author/${a.authorId}" target="_blank">${a.name}</a>
+                </span>`
+            ).join(" ");
 
-                let bibtexAuthors = paper.authors.map(a => a.name).join(" and ");
+            let paperLink = paper.externalIds.DOI ? `https://doi.org/${paper.externalIds.DOI}` : "#";
 
-                let paperLink = paper.externalIds.DOI ? `https://doi.org/${paper.externalIds.DOI}` : "#";
+            let publicationDate = paper.publicationDate
+                ? new Date(paper.publicationDate).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                  })
+                : "Unknown Date";
 
-                let publicationDate = paper.publicationDate
-                    ? new Date(paper.publicationDate).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                      })
-                    : "Unknown Date";
+            let publisher = paper.venue || "Fetching...";
+            let venueHTML = publisher ? `<span class="venue">${publisher}</span>` : "";
 
-                let publisher = resolvedPublishers[index];
-                let venueHTML = publisher ? `<a href="${paperLink}" target="_blank">${publisher}</a>` : "";
+            let isOpenAccess = paper.isOpenAccess 
+                ? `<span class="open-access-tag">📄 Open Access</span>` 
+                : "";
 
-                let isOpenAccess = paper.isOpenAccess 
-                    ? `<span class="open-access-tag">📄 Open Access</span>` 
-                    : "";
-
-                // Generate BibTeX citation
-                let bibtexKey = (paper.authors.length > 0 
-                    ? paper.authors[0].name.split(" ").slice(-1)[0] 
-                    : "Unknown") + year;
-
-                let bibtexCitation = `
-@article{${bibtexKey},
-  author = {${bibtexAuthors}},
+            let bibtexCitation = `
+@article{${paper.title.replace(/\s+/g, "_")},
+  author = {${paper.authors.map(a => a.name).join(" and ")}},
   title = {${paper.title}},
   journal = {${publisher || "Unknown"}},
   year = {${year}},
@@ -80,50 +65,77 @@ document.addEventListener("DOMContentLoaded", function () {
   note = {Accessed: ${new Date().toISOString().split("T")[0]}}
 }`.trim();
 
-                publicationsByYear[year].push(`
-                    <li class="publication-item">
-                        <div class="publication-content">
-                            <a href="${paperLink}" target="_blank" class="publication-title">${paper.title}</a>
-                            <div class="publication-meta">
-                                ${authorsList} · ${venueHTML} · ${publicationDate}
-                            </div>
-                            <div class="publication-actions">
-                                ${isOpenAccess}
-                                <button class="cite-button">📄 Cite</button>
-                                <pre class="citation-text hidden">${bibtexCitation}</pre>
-                            </div>
+            publicationsByYear[year].push(`
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <a href="${paperLink}" target="_blank" class="publication-title">${paper.title}</a>
+                        <div class="publication-meta">
+                            ${authorsList} · ${venueHTML} · ${publicationDate}
                         </div>
-                    </li>
-                `);
-            });
+                        <div class="publication-actions">
+                            ${isOpenAccess}
+                            <button class="cite-button">📄 Cite</button>
+                            <pre class="citation-text hidden">${bibtexCitation}</pre>
+                        </div>
+                    </div>
+                </li>
+            `);
+        });
 
-            // Sort by year (descending)
-            let sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
-            publicationsContainer.innerHTML = "";
-
-            sortedYears.forEach(year => {
-                let yearSection = document.createElement("div");
-                yearSection.classList.add("year-section");
-                yearSection.innerHTML = `
-                    <h2>${year}</h2>
-                    <ul class="publication-list">${publicationsByYear[year].join("")}</ul>
-                `;
-                publicationsContainer.appendChild(yearSection);
-            });
-
-        } catch (error) {
-            console.error("Error fetching publications:", error);
-            publicationsContainer.innerHTML = `<p class="error">Failed to load publications.</p>`;
-        }
+        // Sort and display publications by year
+        let sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
+        sortedYears.forEach(year => {
+            let yearSection = document.createElement("div");
+            yearSection.classList.add("year-section");
+            yearSection.innerHTML = `
+                <h2>${year}</h2>
+                <ul class="publication-list">${publicationsByYear[year].join("")}</ul>
+            `;
+            publicationsContainer.appendChild(yearSection);
+        });
     }
+
+    function filterPublications() {
+        let searchQuery = document.getElementById("searchInput").value.toLowerCase();
+        let selectedYear = document.getElementById("yearFilter").value;
+
+        let filteredPapers = publicationsData.filter(paper => {
+            let matchesSearch = paper.title.toLowerCase().includes(searchQuery) ||
+                paper.authors.some(a => a.name.toLowerCase().includes(searchQuery));
+
+            let matchesYear = selectedYear === "all" || paper.year.toString() === selectedYear;
+
+            return matchesSearch && matchesYear;
+        });
+
+        renderPublications(filteredPapers);
+    }
+
+    function populateYearFilter() {
+        let yearFilter = document.getElementById("yearFilter");
+
+        // Extract unique years and sort them
+        let uniqueYears = [...new Set(publicationsData.map(paper => paper.year).filter(y => y))].sort((a, b) => b - a);
+        
+        yearFilter.innerHTML = `<option value="all">All Years</option>`;
+        uniqueYears.forEach(year => {
+            let option = document.createElement("option");
+            option.value = year;
+            option.textContent = year;
+            yearFilter.appendChild(option);
+        });
+
+        console.log("Dropdown populated with years:", uniqueYears); // Debugging log
+    }
+
+    // Event Listeners for Search and Filter
+    document.getElementById("searchInput").addEventListener("input", filterPublications);
+    document.getElementById("yearFilter").addEventListener("change", filterPublications);
 
     // Fetch publications on page load
     fetchPublications();
 
-    // Refresh publications every 5 minutes
-    setInterval(fetchPublications, 300000);
-
-    // Toggle visibility of the BibTeX citation (event delegation)
+    // Toggle citation visibility
     document.addEventListener("click", function (event) {
         if (event.target.classList.contains("cite-button")) {
             let citationText = event.target.nextElementSibling;

@@ -233,6 +233,61 @@ body {
 }
 
 
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    width: 80%;
+    /* max-width: 600px; */
+    /* box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2); */
+}
+
+#searchInput, #yearFilter {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid gold;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: rgba(255, 215, 0, 0.6);
+}
+
+#searchInput:focus, #yearFilter:focus {
+    border-color: white;
+}
+
+#yearFilter {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid gold;
+    border-radius: 5px;
+    background: black;
+    color: gold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    outline: none;
+}
+
+#yearFilter:hover {
+    background: gold;
+    color: black;
+}
+
+#yearFilter option {
+    background: black;
+    color: white;
+}
+
 
 /* General Styles */
 .publications-container {

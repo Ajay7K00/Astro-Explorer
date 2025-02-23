@@ -203,6 +203,7 @@ body {
     justify-content: center;
     gap: 50px; /* Adjusts space between image and text */
     padding: 40px 100px; /* Adds space from left & right */
+    padding-top: 100px;
 }
 
 

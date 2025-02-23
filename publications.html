@@ -36,16 +36,20 @@
     <!-- Header Section -->
     <header class="publications-header">
         <div class="header-overlay">
-            <h1>Our Latest Publications</h1>
-            <p>Explore research and contributions from SPARC Lab</p>
+            <h1>Our Publications</h1>
+            <p>Explore research and contributions from SPACE Lab</p>
         </div>
     </header>
-    
-    <!-- Publications Section -->
-    <section class="publications-container" id="publications">
-        <div class="loading">Loading publications...</div>
-    </section>
 
+    <div class="filter-container">
+        <input type="text" id="searchInput" placeholder="Search by title or author">
+        <select id="yearFilter">
+            <option value="all">All Years</option>
+        </select>
+    </div>
+    <div class="publications-container"></div>
+    
+    
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-container">
@@ -80,7 +84,7 @@
 
         <!-- Copyright -->
         <div class="footer-bottom">
-            &copy; 2025 SPARC Lab | Space-weather, Plasma & Aeronomy Center for Exploration. All rights reserved.
+            &copy; 2025 SPACE Lab | Space-weather, Plasma & Aeronomy Center for Exploration. All rights reserved.
         </div>
     </footer>
 </body>
