@@ -67,43 +67,20 @@ function createXrayChart() {
         data: {
             labels: [],
             datasets: [
-                {
-                    label: "GOES-16 Short",
-                    data: [],
-                    borderColor: "blue",
-                    borderWidth: 1.5,
-                    pointRadius: 0,
-                    tension: 0.3
-                },
-                {
-                    label: "GOES-16 Long",
-                    data: [],
-                    borderColor: "red",
-                    borderWidth: 1.5,
-                    pointRadius: 0,
-                    tension: 0.3
-                },
-                {
-                    label: "GOES-18 Short",
-                    data: [],
-                    borderColor: "purple",
-                    borderWidth: 1.5,
-                    pointRadius: 0,
-                    tension: 0.3
-                },
-                {
-                    label: "GOES-18 Long",
-                    data: [],
-                    borderColor: "orange",
-                    borderWidth: 1.5,
-                    pointRadius: 0,
-                    tension: 0.3
-                }
+                { label: "GOES-16 Short", data: [], borderColor: "blue", borderWidth: 1.5, pointRadius: 0, tension: 0.3 },
+                { label: "GOES-16 Long", data: [], borderColor: "red", borderWidth: 1.5, pointRadius: 0, tension: 0.3 },
+                { label: "GOES-18 Short", data: [], borderColor: "purple", borderWidth: 1.5, pointRadius: 0, tension: 0.3 },
+                { label: "GOES-18 Long", data: [], borderColor: "orange", borderWidth: 1.5, pointRadius: 0, tension: 0.3 }
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',  // Enables vertical hover line
+                axis: 'x',
+                intersect: false
+            },
             scales: {
                 x: {
                     ticks: { color: "white", maxTicksLimit: 12 },
@@ -134,6 +111,8 @@ function createXrayChart() {
                     ticks: {
                         color: "white",
                         major: { enabled: true },
+                        autoSkip: false,  // Prevents skipping labels
+                        minRotation: 0,   // Ensures horizontal alignment
                         callback: function(value) {
                             const flareClasses = {
                                 1e-8: "A",
@@ -145,67 +124,38 @@ function createXrayChart() {
                             return flareClasses[value] || "";
                         }
                     }
+                    
                 }
             },
             plugins: {
                 legend: {
-                    labels: {
-                        color: "white",
-                        usePointStyle: true,
-                        pointStyle: "line"
-                    }
+                    labels: { color: "white", usePointStyle: true, pointStyle: "line" }
                 },
                 tooltip: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 1,
                     callbacks: {
-                        label: function(tooltipItem) {
-                            return tooltipItem.raw.toExponential(2) + " W/m²";
-                        }
-                    }
-                },
-                annotation: {
-                    annotations: {
-                        A: {
-                            type: "box",
-                            yMin: 1e-8,
-                            yMax: 1e-7,
-                            backgroundColor: "rgba(255, 255, 0, 0.2)",
-                            borderWidth: 0,
-                            z: -1
+                        title: function (tooltipItems) {
+                            return tooltipItems[0].label; // Time label
                         },
-                        B: {
-                            type: "box",
-                            yMin: 1e-7,
-                            yMax: 1e-6,
-                            backgroundColor: "rgba(255, 165, 0, 0.2)",
-                            borderWidth: 0,
-                            z: -1
+                        label: function (tooltipItem) {
+                            let label = tooltipItem.dataset.label || '';
+                            let value = tooltipItem.raw;
+                            return `${label}: ${value.toExponential(2)} W/m²`;
                         },
-                        C: {
-                            type: "box",
-                            yMin: 1e-6,
-                            yMax: 1e-5,
-                            backgroundColor: "rgba(255, 69, 0, 0.2)",
-                            borderWidth: 0,
-                            z: -1
-                        },
-                        M: {
-                            type: "box",
-                            yMin: 1e-5,
-                            yMax: 1e-4,
-                            backgroundColor: "rgba(255, 0, 0, 0.2)",
-                            borderWidth: 0,
-                            z: -1
-                        },
-                        X: {
-                            type: "box",
-                            yMin: 1e-4,
-                            yMax: 1e-3,
-                            backgroundColor: "rgba(139, 0, 0, 0.3)",
-                            borderWidth: 0,
-                            z: -1
+                        beforeBody: function (tooltipItems) {
+                            // Sort items in descending order (higher flux values first)
+                            tooltipItems.sort((a, b) => b.raw - a.raw);
                         }
                     }
                 }
+                
             }
         }
     });

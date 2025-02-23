@@ -354,8 +354,9 @@ body {
     align-items: stretch;
     width: 100%;
     margin: 0 auto;
-    padding: 50px;
-    gap: 100px; /* Adds space between the two sections */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 120px; /* Adds space between the two sections */
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
@@ -365,7 +366,7 @@ body {
     width: 44%;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 15px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
     font-family: Arial, sans-serif;
