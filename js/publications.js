@@ -14,12 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
 
             publicationsData = data.data; // Store globally for filtering
+            sortPublications(); // Sort before rendering
             renderPublications(publicationsData);
-            populateYearFilter(); // Ensure this runs AFTER publications are fetched
+            populateYearFilter();
         } catch (error) {
             console.error("Error fetching publications:", error);
             publicationsContainer.innerHTML = `<p class="error">Failed to load publications.</p>`;
         }
+    }
+
+    function sortPublications() {
+        publicationsData.sort((a, b) => {
+            let dateA = a.publicationDate ? new Date(a.publicationDate) : new Date(`${a.year}-01-01`);
+            let dateB = b.publicationDate ? new Date(b.publicationDate) : new Date(`${b.year}-01-01`);
+            return dateB - dateA; // Sort latest first
+        });
     }
 
     function renderPublications(papers) {
@@ -82,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `);
         });
 
-        // Sort and display publications by year
+        // Display publications by year in descending order
         let sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
         sortedYears.forEach(year => {
             let yearSection = document.createElement("div");

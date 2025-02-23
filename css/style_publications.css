@@ -315,16 +315,7 @@ body {
 /* Publication Item */
 
 /* Make all links gold by default */
-a {
-    color: gold;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
 
-a:hover {
-    text-decoration: underline;
-    color: #ffd700; /* Slightly lighter gold on hover */
-}
 
 .publication-item {
     list-style: none;
@@ -361,6 +352,7 @@ a:hover {
     border-radius: 5px;
     font-size: 14px;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .author-tag a {
