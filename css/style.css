@@ -570,6 +570,7 @@ body {
     font-size: 12px;
     margin-top: 10px;
     color: #ddd;
+    padding: 5px 0px 0px 75%;
 }
 
 .data-source a {
@@ -617,7 +618,7 @@ body {
 .xray-flux-container {
     flex: 1;
     min-width: 600px; /* Prevents collapsing on smaller screens */
-    max-width: 100%;
+    max-width: 50%;
     height: 400px !important;
     box-sizing: border-box;
     /* padding-right: 55%; */
@@ -644,6 +645,7 @@ body {
 .xray-flux-container h2 {
     color: #ffcc00;
     letter-spacing: 1px;
+    font-size: 19px;
 }
 
 .xray-text {
@@ -665,7 +667,8 @@ body {
 /* Data Source */
 .xray-data-source {
     color: #bbb;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    padding: 5px 0px 0px 75%;
 }
 
 .xray-data-source .link {
@@ -678,6 +681,63 @@ body {
 }
 
 
+
+.k-index-container {
+    flex: 1;
+    min-width: 600px; /* Prevents collapsing on smaller screens */
+    max-width: 50%;
+    height: 400px !important;
+    box-sizing: border-box;
+    /* padding-right: 55%; */
+}
+
+.k-index-container h2 {
+    color: #ffcc00;
+    letter-spacing: 1px;
+}
+
+.k-index-section {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 94, 0, 0.5);
+    text-align: center;
+}
+
+.k-index-text {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffcc00;
+    /* margin-bottom: 10px; Moves text above the shaded chart */
+}
+
+#kIndexChart {
+    width: 100% !important;
+    height: 250px !important;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.k-index-data-source {
+    font-size: 12px;
+    margin-top: 10px;
+    color: white;
+    padding: 5px 0px 0px 75%;
+}
+
+.k-index-data-source .link {
+    color: #ffcc00; /* Orange link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.k-index-data-source .link:hover {
+    text-decoration: underline;
+    color: #ffcc00; /* Yellow hover effect */
+}
 
 
 

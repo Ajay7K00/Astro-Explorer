@@ -18,7 +18,8 @@
     <!-- JavaScript Files -->
     <script src="js/sw.js" defer></script>
     <script src="js/proton_flux.js" defer></script>
-    <script src="js/xray_flux.js"></script>
+    <script src="js/xray_flux.js" defer></script>
+    <script src="js/kindex.js"></script>
     <script src="js/navbar.js" defer></script>
     <script src="js/photo_album.js" defer></script>
     <script src="js/announcement.js"></script>
@@ -131,7 +132,6 @@
                 <p class="sw-text">This is live interplanetary magnetic field data of solar wind, updated every minute.</p>
                 <section class="solar-wind-section">
                     <h2>Real-Time Solar Wind</h2>
-
                     <!-- Buttons to Change Time Range -->
                     <div class="time-range-buttons">
                         <button id="btn-1day">1 Day</button>
@@ -203,6 +203,22 @@
 
 
 
+        <!-- Planetary K-Index Data Section -->
+        <section class="k-index-container">
+            <section class="k-index-text">
+                <p class="k-index-text">This is live planetary K-index data, updated every minute.</p>
+                <section class="k-index-section">
+                    <h2>Real-Time Planetary K-Index</h2>
+                    <canvas id="kIndexChart"></canvas>
+                    <p class="k-index-data-source">
+                        &copy <a class="link" href="https://www.swpc.noaa.gov/" target="_blank">NOAA SWPC</a>
+                    </p>
+                </section>
+            </section>
+        </section>
+
+
+
     </section>
 
 
@@ -229,7 +245,7 @@
         <!-- Contact Info -->
         <div class="footer-contact">
             <h3>Contact Us</h3>
-            <p>Email: <a href="mailto:info@sparclab.com">info@sparclab.com</a></p>
+            <p>Email: <a href="mailto:info@sparclab.com">spac3.1ab@gmail.com</a></p>
             <p>Follow us:</p>
             <div class="social-icons">
                 <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>

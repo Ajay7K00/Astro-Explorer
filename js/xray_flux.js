@@ -1,8 +1,6 @@
-// NOAA API URLs
 const primaryApiUrl = "https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json";
 const secondaryApiUrl = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-1-day.json";
 
-// Global Chart Variable
 let xrayChart;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,12 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 async function fetchXrayData() {
     try {
         console.log("Fetching X-ray flux data...");
-
         const [primaryResponse, secondaryResponse] = await Promise.all([
             fetch(primaryApiUrl),
             fetch(secondaryApiUrl)
         ]);
-
         const [primaryData, secondaryData] = await Promise.all([
             primaryResponse.json(),
             secondaryResponse.json()
@@ -49,12 +45,23 @@ async function fetchXrayData() {
 }
 
 function updateXrayChart(labels, g16S, g16L, g18S, g18L) {
+    const allData = [...g16S, ...g16L, ...g18S, ...g18L].filter(value => value !== null);
+    const minValue = Math.min(...allData, 1e-9);
+    const maxValue = Math.max(...allData, 1e-3);
+
     if (xrayChart) {
         xrayChart.data.labels = labels;
         xrayChart.data.datasets[0].data = g16S;
         xrayChart.data.datasets[1].data = g16L;
         xrayChart.data.datasets[2].data = g18S.length ? g18S : new Array(labels.length).fill(null);
         xrayChart.data.datasets[3].data = g18L.length ? g18L : new Array(labels.length).fill(null);
+
+        // Dynamically adjust the Y-axis scale
+        xrayChart.options.scales.y.min = minValue * 0.8;
+        xrayChart.options.scales.y.max = maxValue * 1.5;
+        xrayChart.options.scales.y1.min = minValue * 0.8;
+        xrayChart.options.scales.y1.max = maxValue * 1.5;
+
         xrayChart.update();
     }
 }
@@ -76,11 +83,7 @@ function createXrayChart() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',  // Enables vertical hover line
-                axis: 'x',
-                intersect: false
-            },
+            interaction: { mode: 'index', axis: 'x', intersect: false },
             scales: {
                 x: {
                     ticks: { color: "white", maxTicksLimit: 12 },
@@ -90,13 +93,12 @@ function createXrayChart() {
                     title: { display: true, text: "Watts·m⁻²", color: "white" },
                     type: "logarithmic",
                     min: 1e-9,
-                    max: 1e-4,
-                    grid: { color: "rgba(255,255,255,0.2)" },
+                    max: 1e-2,
+                    grid: { color: "rgba(255,255,255,0.2)", drawTicks: true },
                     ticks: {
                         color: "white",
-                        major: { enabled: true },
                         callback: function(value) {
-                            const majorTicks = [1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4];
+                            const majorTicks = [1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2];
                             return majorTicks.includes(value) ? value.toExponential(0) : "";
                         }
                     }
@@ -107,55 +109,46 @@ function createXrayChart() {
                     grid: { drawOnChartArea: false },
                     type: "logarithmic",
                     min: 1e-9,
-                    max: 1e-4,
+                    max: 1e-2,
                     ticks: {
                         color: "white",
-                        major: { enabled: true },
-                        autoSkip: false,  // Prevents skipping labels
-                        minRotation: 0,   // Ensures horizontal alignment
                         callback: function(value) {
                             const flareClasses = {
                                 1e-8: "A",
                                 1e-7: "B",
                                 1e-6: "C",
                                 1e-5: "M",
-                                1e-4: "X"
+                                1e-4: "X",
+                                1e-3: "10X",
+                                1e-2: "100X"
                             };
                             return flareClasses[value] || "";
                         }
                     }
-                    
                 }
             },
             plugins: {
-                legend: {
-                    labels: { color: "white", usePointStyle: true, pointStyle: "line" }
+                annotation: {
+                    annotations: [
+                        { type: "line", mode: "horizontal", scaleID: "y", value: 1e-5, borderColor: "yellow", borderWidth: 1.5, label: { enabled: true, content: "M-Class", color: "yellow", backgroundColor: "rgba(0,0,0,0.7)" } },
+                        { type: "line", mode: "horizontal", scaleID: "y", value: 1e-4, borderColor: "red", borderWidth: 1.5, label: { enabled: true, content: "X-Class", color: "red", backgroundColor: "rgba(0,0,0,0.7)" } }
+                    ]
                 },
                 tooltip: {
                     enabled: true,
                     mode: 'index',
                     intersect: false,
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    titleColor: '#fff',
-                    bodyColor: '#fff',
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    borderWidth: 1,
                     callbacks: {
-                        title: function (tooltipItems) {
-                            return tooltipItems[0].label; // Time label
-                        },
-                        label: function (tooltipItem) {
-                            let label = tooltipItem.dataset.label || '';
-                            let value = tooltipItem.raw;
-                            return `${label}: ${value.toExponential(2)} W/m²`;
-                        },
-                        beforeBody: function (tooltipItems) {
-                            // Sort items in descending order (higher flux values first)
-                            tooltipItems.sort((a, b) => b.raw - a.raw);
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (context.raw) {
+                                label += `: ${context.raw.toExponential(2)} W/m²`;
+                            }
+                            return label;
                         }
                     }
-                }
-                
+                },
+                legend: { labels: { color: "white", usePointStyle: true, pointStyle: "line" } }
             }
         }
     });
