@@ -3,37 +3,21 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="css/style_people.css">
+   <link rel="stylesheet" href="../css/style_people.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-   <title>SPARC Lab - People</title>
-   <script src="js/navbar.js" defer></script> <!-- Navbar JavaScript -->
+   <title>SPACE Lab - People</title>
+   <script src="../js/navbar.js" defer></script> <!-- Navbar JavaScript -->
+
+    <!-- for header and footer -->
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../js/common.js" defer></script>
+
 
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="img/sun.jpg" alt="logo">
-        </div>
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Explore</a>
-                <ul class="dropdown">
-                    <li><a href="space-plasma.html">Space Plasma</a></li>
-                </ul>
-            </li>
-            <li><a href="people.html">People</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="support.html">Support Us</a></li>
-        </ul>
-        <!-- Mobile Menu Toggle -->
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <!-- Navbar -->
+<div id="navbar-container"></div>
 
 
     <!-- People Sections -->
@@ -45,7 +29,7 @@
         <div class="people-container">
             <div class="person-card professor">
                 <a href="People/AnilR.html" class="card-link"></a> <!-- Clickable Overlay -->
-                <img src="img/AnilR.jpg" alt="Professor">
+                <img src="../img/AnilR.jpg" alt="Professor">
                 <h3>Dr. Anil Narayan Raghav</h3>
                 <p>Associate Professor | Space-weather Consultant</p>
         
@@ -68,8 +52,8 @@
         <div class="people-container">
             <!-- PhD Student 1 -->
             <div class="person-card phd">
-                <a href="People/OmkarD.html" class="card-link"></a> <!-- Clickable Overlay -->
-                <img src="img/OmkarD.jpg" alt="PhD Student">
+                <a href="../People/OmkarD.html" class="card-link"></a> <!-- Clickable Overlay -->
+                <img src="../img/OmkarD.jpg" alt="PhD Student">
                 <h3>Omkar Dhamane</h3>
                 <p>Research on Plasma waves, MHD and Kinetic scale coupling, Turbulence</p>
                 <ul class="social-icons">
@@ -85,7 +69,7 @@
 
             <!-- PhD Student 2 -->
             <div class="person-card phd">
-                <img src="img/KalpeshG.jpg" alt="PhD Student">
+                <img src="../img/KalpeshG.jpg" alt="PhD Student">
                 <h3>Kalpesh Ghag</h3>
                 <p>Research on Charged particle acceleration in Interplanetary space and magnetosphere</p>
                 <ul class="social-icons">
@@ -101,7 +85,7 @@
             </div>
 
             <div class="person-card phd">
-                <img src="img/KishorK.jpg" alt="PhD Student">
+                <img src="../img/KishorK.jpg" alt="PhD Student">
                 <h3>Kishor Kumbhar</h3>
                 <p>Plasma waves and instabilities, Plasma heating</p>
                 <ul class="social-icons">
@@ -118,7 +102,7 @@
 
 
             <div class="person-card phd-4">
-                <img src="img/Ajay.jpeg" alt="PhD Student">
+                <img src="../img/Ajay.jpeg" alt="PhD Student">
                 <h3>Ajay Kumar</h3>
                 <p>Solar Energetic Particles, Particle Acceleration, Planar Magnetic structures</p>
                 <ul class="social-icons">
@@ -141,7 +125,7 @@
         <div class="people-container">
             <!-- Masters Student 1 -->
             <div class="person-card masters">
-                <img src="img/ShubhamK.jpg" alt="Masters Student">
+                <img src="../img/ShubhamK.jpg" alt="Masters Student">
                 <h3>Shubham Kadam</h3>
                 <p>Dissipation mechanisms in slow solar wind</p>
                 <ul class="social-icons">
@@ -161,7 +145,7 @@
         <div class="people-container">
             <!-- Alumni 1 -->
             <div class="person-card alumni">
-                <img src="img/alumni1.jpg" alt="Alumni">
+                <img src="../img/alumni1.jpg" alt="Alumni">
                 <h3>Emily White</h3>
                 <p>Now at NASA</p>
                 <ul class="social-icons">
@@ -179,43 +163,8 @@
     </section>
 
 
-           <!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Logo -->
-        <div class="footer-logo">
-            <img src="img/sun.jpg" alt="SPARC Lab Logo">
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="people.html">People</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="support.html">Support Us</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>Email: <a href="mailto:info@sparclab.com">spac3.1a6@gmail.com</a></p>
-            <p>Follow us:</p>
-            <div class="social-icons-footer">
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="footer-bottom">
-        &copy; 2025 SPACE Lab | Space-weather, Plasma & Aeronomy Center for Exploration. All rights reserved.
-    </div>
-</footer>
+<!-- Footer -->
+<div id="footer-container"></div>
 
 </body>
 </html>
