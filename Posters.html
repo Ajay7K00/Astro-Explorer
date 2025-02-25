@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARC Lab - Posters</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style_posters.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+    <!-- Scripts -->
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/posters.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/sun.jpg" alt="SPARC Lab Logo">
+        </div>
+        <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Explore</a>
+                <ul class="dropdown">
+                    <li><a href="../space-plasma.html">Space Plasma</a></li>
+                </ul>
+            </li>
+            <li><a href="../people.html">People</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+            <li><a href="../support.html">Support Us</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+<!-- Posters Section -->
+<section class="posters">
+    <h1>Student Exhibition Posters</h1>
+    <div class="poster-gallery">
+        <div class="poster" onclick="openModal('../Posters/shubham.png')">
+            <img src="../Posters/shubham.png" alt="Poster 1">
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Enlarged Poster View -->
+<div id="posterModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+    
+<!-- Zoom Controls -->
+<div class="zoom-controls">
+    <button onclick="zoomIn()"><i class="fas fa-search-plus"></i></button>
+    <button onclick="zoomOut()"><i class="fas fa-search-minus"></i></button>
+    <button onclick="resetZoom()"><i class="fas fa-undo"></i></button>
+</div>
+</div>
+
+
+    <!-- Footer -->
+    <div class="footer-bottom">
+        &copy; 2025 SPARC Lab | Space-weather, Plasma & Aeronomy Center for Exploration. All rights reserved.
+    </div>
+
+</body>
+</html>

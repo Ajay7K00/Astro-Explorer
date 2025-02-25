@@ -360,7 +360,7 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
 
 
 .masters .social-icons li:nth-child(1) { display: none; } /* ResearchGate */
-
+.masters .social-icons li:nth-child(2) { display: none; }
 
 /* Footer Styles */
 .footer {

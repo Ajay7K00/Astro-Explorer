@@ -194,8 +194,8 @@ body {
 /* Publications Page Header */
 .publications-header {
     position: relative;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(255, 140, 0, 0.7)), 
-                url('../img/publications-bg.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(255, 140, 0, 0.3)), 
+                url('../img/aurora.jpg') center/cover no-repeat;
     height: 250px;
     display: flex;
     justify-content: center;
