@@ -59,7 +59,7 @@ body {
 
 .poster:hover img {
     transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(255, 200, 0, 0.8);
+    box-shadow: 0 6px 20px rgba(218, 214, 200, 0.8);
 }
 
 /* Add Subtle Background Overlay */
