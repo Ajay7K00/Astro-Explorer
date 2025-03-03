@@ -107,7 +107,7 @@ function renderChart(timeLabels, dateLabels, data) {
                     title: {
                         display: true,
                         text: [
-                            `🟩 Quiet (Kp < 5)   🟨 Storm (Kp = 5)   🟧 Moderate Storm (Kp = 6)   🟥 Strong Storm (Kp = 7)   🟪 Severe Storm (Kp ≥ 8)`,
+                            `🟩 Quiet (Kp < 5)   🟨 Storm (Kp ≥ 5)   🟧 Moderate Storm (Kp ≥ 6)   🟥 Strong Storm (Kp ≥ 7)   🟪 Severe Storm (Kp ≥ 8)`,
                         ],
                         font: { size: 10, weight: "bold" },
                         color: "white",
@@ -129,9 +129,9 @@ function renderChart(timeLabels, dateLabels, data) {
 
 function getKIndexColor(value) {
     if (value < 5) return "green";
-    if (value === 5) return "yellow";
-    if (value === 6) return "orange";
-    if (value === 7) return "red";
+    if (value >= 5) return "yellow";
+    if (value >= 6) return "orange";
+    if (value >= 7) return "red";
     if (value >= 8) return "purple";
     return "gray";
 }
