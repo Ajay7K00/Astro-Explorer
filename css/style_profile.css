@@ -101,6 +101,7 @@ body {
 .social-icons a:nth-child(8):hover { color: #00ff9d; } /* CV */
 
 .professor .social-icons a:nth-child(3) { display: none; } /* Hide Instagram */
+.phd3 .social-icons a:nth-child(2) { display: none; } /* Hide Instagram */
 
 /* Right Section (Bio & Content) */
 .profile-right {

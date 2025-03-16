@@ -174,8 +174,13 @@ h2.alumni-title { color: #0099ff; } /* Alumni - Blue */
 /* PhD-specific Social Media */
 .phd .social-icons li:nth-child(6) a:hover { color: #4CAF50; } /* ResearchGate */
 .phd .social-icons li:nth-child(4) a:hover { color: #4285F4; } /* Google Scholar */
+.phd .social-icons li:nth-child(2) { display: none; }
 .phd-4 .social-icons li:nth-child(4) { display: none; }
 .phd-4 .social-icons li:nth-child(6) { display: none; }
+
+.phd-5 .social-icons li:nth-child(2) { display: none; }
+.phd-5 .social-icons li:nth-child(4) { display: none; }
+.phd-5 .social-icons li:nth-child(6) { display: none; }
 
 
 .masters .social-icons li:nth-child(1) { display: none; } /* ResearchGate */
